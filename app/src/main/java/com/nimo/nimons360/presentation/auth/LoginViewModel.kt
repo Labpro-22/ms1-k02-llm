@@ -2,16 +2,16 @@ package com.nimo.nimons360.presentation.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nimo.nimons360.data.repository.AuthRepository
-import com.nimo.nimons360.data.repository.AuthResult
-import com.nimo.nimons360.data.repository.DummyAuthRepository
+import com.nimo.nimons360.domain.repository.AuthRepository
+import com.nimo.nimons360.domain.repository.AuthResult
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import androidx.lifecycle.ViewModelProvider
 
 class LoginViewModel(
-    private val repository: AuthRepository = DummyAuthRepository(),
+    private val repository: AuthRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LoginUiState>(LoginUiState.Idle)
@@ -31,7 +31,7 @@ class LoginViewModel(
 
             _uiState.value = when (result) {
                 is AuthResult.Success -> {
-                    LoginUiState.Success(userId = result.user.userId)
+                    LoginUiState.Success(userId = result.user.id)
                 }
                 is AuthResult.InvalidCredentials -> {
                     LoginUiState.Error(message = ERROR_TAG_INVALID_CREDENTIALS)
@@ -81,5 +81,15 @@ class LoginViewModel(
         const val ERROR_TAG_INVALID_CREDENTIALS = "error_invalid_credentials"
         const val ERROR_TAG_NETWORK = "error_network"
         const val ERROR_TAG_GENERIC = "error_generic"
+    }
+}
+
+class LoginViewModelFactory(private val repository: AuthRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return LoginViewModel(repository) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

@@ -12,10 +12,19 @@ import com.nimo.nimons360.R
 import kotlinx.coroutines.launch
 import com.nimo.nimons360.databinding.ActivityLoginBinding
 import kotlin.getValue
+import com.nimo.nimons360.data.local.TokenManager
+import com.nimo.nimons360.data.remote.NetworkConfig
+import com.nimo.nimons360.data.repository.AuthRepositoryImpl
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel: LoginViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels {
+        val tokenManager = TokenManager(this)
+        val apiService = NetworkConfig.provideAuthApiService(tokenManager) {
+        }
+        val repository = AuthRepositoryImpl(apiService, tokenManager)
+        LoginViewModelFactory(repository)
+    }
     private lateinit var binding: ActivityLoginBinding
 
     private var isPasswordVisible = false
@@ -28,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
 
         setUpListeners()
         observeUiState()
+
     }
 
     private fun setUpListeners() {

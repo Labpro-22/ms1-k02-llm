@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+
+    <!-- Primary Teal Scale -->
+    <color name="color_primary">#00897B</color>         <!-- Deep teal – main brand color -->
+    <color name="color_primary_medium">#26A69A</color>  <!-- Medium teal – secondary actions -->
+    <color name="color_primary_light">#80CBC4</color>   <!-- Light teal – accents / icons -->
+    <color name="color_primary_pale">#B2DFDB</color>    <!-- Pale teal – borders / dividers -->
+    <color name="color_primary_surface">#E0F2F1</color> <!-- Surface teal – backgrounds -->
+
+    <!-- Semantic / Utility Colors -->
+    <color name="color_background">#F7FFFE</color>      <!-- Near-white with teal tint -->
+    <color name="color_surface">#FFFFFF</color>         <!-- Card / input background -->
+    <color name="color_on_primary">#FFFFFF</color>      <!-- Text on primary buttons -->
+    <color name="color_on_background">#1A2E2C</color>   <!-- Primary text -->
+    <color name="color_on_surface_secondary">#4A706B</color> <!-- Hint / secondary text -->
+    <color name="color_on_surface_tertiary">#9CA3AF</color>  <!-- Placeholder text -->
+    <color name="color_divider">#D1D5DB</color>         <!-- Input borders, dividers -->
+    <color name="color_error">#D32F2F</color>           <!-- Error messages -->
+    <color name="color_show_password">#26A69A</color>   <!-- "Show" toggle tint -->
+    <color name="color_logo_placeholder_bg">#E0F2F1</color>  <!-- Logo placeholder bg -->
+    <color name="color_logo_placeholder_border">#80CBC4</color> <!-- Logo placeholder border -->
+    <color name="color_scrim">#1A00897B</color>         <!-- Subtle overlay scrim -->
+    <color name="color_icon_neutral">#9CA3AF</color>    <!-- Input field icons (email, lock) -->
+
 </resources>

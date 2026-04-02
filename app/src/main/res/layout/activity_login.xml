@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    tools:context=".presentation.auth.LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+
+        <!-- ── Header gradient band ───────────────────────────────── -->
+        <View
+            android:id="@+id/viewHeaderBg"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            android:background="@drawable/bg_login_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ── Logo placeholder ──────────────────────────────────── -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/login_logo_size"
+            android:layout_height="@dimen/login_logo_size"
+            android:layout_marginTop="64dp"
+            android:contentDescription="@string/login_logo_content_description"
+            android:src="@drawable/ic_logo_nimons"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ── App name ───────────────────────────────────────────── -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_gap_logo_to_title"
+            android:text="@string/login_app_name"
+            android:textColor="@color/color_on_background"
+            android:textSize="@dimen/text_app_name"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <!-- ── Tagline ────────────────────────────────────────────── -->
+        <TextView
+            android:id="@+id/tvTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/login_tagline"
+            android:textColor="@color/color_on_surface_secondary"
+            android:textSize="@dimen/text_tagline"
+            android:letterSpacing="0.01"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAppName" />
+
+        <!-- ── Form card ─────────────────────────────────────────── -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/login_horizontal_margin"
+            android:layout_marginEnd="@dimen/login_horizontal_margin"
+            android:layout_marginTop="@dimen/login_gap_tagline_to_form"
+            app:cardBackgroundColor="@color/color_surface"
+            app:cardCornerRadius="@dimen/login_card_corner_radius"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTagline">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/login_card_padding">
+
+                <!-- ── Email input ───────────────────────────────── -->
+                <LinearLayout
+                    android:id="@+id/llEmailField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_input_height"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/login_content_desc_email_icon"
+                        android:src="@android:drawable/ic_dialog_email"
+                        app:tint="@color/color_icon_neutral" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/login_hint_email"
+                        android:importantForAutofill="yes"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/color_on_background"
+                        android:textColorHint="@color/color_on_surface_tertiary"
+                        android:textSize="@dimen/text_input"
+                        android:autofillHints="emailAddress" />
+                </LinearLayout>
+
+                <!-- Email error label -->
+                <TextView
+                    android:id="@+id/tvEmailError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/color_error"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="@string/login_error_email_invalid"
+                    tools:visibility="visible" />
+
+                <!-- ── Password input ────────────────────────────── -->
+                <LinearLayout
+                    android:id="@+id/llPasswordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_input_height"
+                    android:layout_marginTop="@dimen/login_gap_between_inputs"
+                    android:background="@drawable/bg_input_field"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="4dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/login_content_desc_password_icon"
+                        android:src="@android:drawable/ic_lock_idle_lock"
+                        app:tint="@color/color_icon_neutral" />
+
+                    <EditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/login_hint_password"
+                        android:importantForAutofill="yes"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/color_on_background"
+                        android:textColorHint="@color/color_on_surface_tertiary"
+                        android:textSize="@dimen/text_input"
+                        android:autofillHints="password" />
+
+                    <ImageButton
+                        android:id="@+id/btnShowPassword"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/login_content_desc_show_password"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_visibility_off"
+                        app:tint="@color/color_icon_neutral" />
+                </LinearLayout>
+
+                <!-- Password error label -->
+                <TextView
+                    android:id="@+id/tvPasswordError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/color_error"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    tools:text="@string/login_error_password_empty"
+                    tools:visibility="visible" />
+
+                <!-- ── Sign In button ────────────────────────────── -->
+                <Button
+                    android:id="@+id/btnSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/login_button_height"
+                    android:layout_marginTop="@dimen/login_gap_form_to_button"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="@string/login_button_sign_in"
+                    android:textColor="@color/color_on_primary"
+                    android:textSize="@dimen/text_button"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.04" />
+
+                <!-- ── Loading indicator (hidden by default) ──────── -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="12dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/color_primary"
+                    android:visibility="gone" />
+
+                <!-- ── General error message ─────────────────────── -->
+                <TextView
+                    android:id="@+id/tvGeneralError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_error"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:text="@string/login_error_invalid_credentials"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

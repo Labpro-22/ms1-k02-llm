@@ -1,9 +1,51 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Nimons360" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="Theme.Nimons360" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_medium</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <item name="colorSecondary">@color/color_primary_medium</item>
+        <item name="colorOnSecondary">@color/color_on_primary</item>
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:statusBarColor">@color/color_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
     </style>
 
-    <style name="Theme.Nimons360" parent="Base.Theme.Nimons360" />
+    <!-- Input field style -->
+    <style name="Widget.Nimons360.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/color_divider</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="hintTextColor">@color/color_on_surface_tertiary</item>
+        <item name="android:textColorHint">@color/color_on_surface_tertiary</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Nimons360.InputField</item>
+    </style>
+
+    <style name="ShapeAppearance.Nimons360.InputField" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+
+    <!-- Primary button style -->
+    <style name="Widget.Nimons360.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/color_primary</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- Text button style (Forgot Password, Show) -->
+    <style name="Widget.Nimons360.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/color_primary_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="rippleColor">@color/color_primary_surface</item>
+    </style>
+
 </resources>

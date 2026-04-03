@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Layout spacing -->
+    <dimen name="login_horizontal_margin">28dp</dimen>
+    <dimen name="login_logo_size">96dp</dimen>
+    <dimen name="login_logo_corner_radius">24dp</dimen>
+    <dimen name="login_input_height">56dp</dimen>
+    <dimen name="login_button_height">56dp</dimen>
+    <dimen name="login_gap_logo_to_title">24dp</dimen>
+    <dimen name="login_gap_tagline_to_form">40dp</dimen>
+    <dimen name="login_gap_between_inputs">16dp</dimen>
+    <dimen name="login_gap_form_to_button">28dp</dimen>
+    <dimen name="login_card_padding">24dp</dimen>
+    <dimen name="login_card_corner_radius">24dp</dimen>
+
+    <!-- Typography -->
+    <dimen name="text_app_name">28sp</dimen>
+    <dimen name="text_tagline">14sp</dimen>
+    <dimen name="text_input">15sp</dimen>
+    <dimen name="text_button">16sp</dimen>
+</resources>

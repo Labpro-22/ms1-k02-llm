@@ -1,3 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ============================================================ -->
+    <!-- Nimons360 UI String Constants                               -->
+    <!-- To change any label / copy, modify this file only.         -->
+    <!-- ============================================================ -->
+
+    <!-- App Meta -->
     <string name="app_name">Nimons360</string>
+
+    <!-- Login Screen -->
+    <string name="login_app_name">Nimons360</string>
+    <string name="login_tagline">Stay connected with those who matter</string>
+    <string name="login_logo_content_description">Nimons360 App Logo</string>
+    <string name="login_logo_placeholder_label">Your Logo Here</string>
+
+    <!-- Input Fields -->
+    <string name="login_hint_email">Email address</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_content_desc_email_icon">Email icon</string>
+    <string name="login_content_desc_password_icon">Password icon</string>
+    <string name="login_content_desc_show_password">Toggle password visibility</string>
+
+    <!-- Buttons & Actions -->
+    <string name="login_button_sign_in">Sign In</string>
+    <string name="login_button_show_password">Show</string>
+    <string name="login_button_hide_password">Hide</string>
+
+    <!-- Validation Messages -->
+    <string name="login_error_email_empty">Please enter your email address</string>
+    <string name="login_error_email_invalid">Please enter a valid email address</string>
+    <string name="login_error_password_empty">Please enter your password</string>
+    <string name="login_error_password_too_short">Password must be at least 6 characters</string>
+    <string name="login_error_invalid_credentials">Invalid email or password. Please try again.</string>
+    <string name="login_error_network">No internet connection. Please check your network.</string>
+    <string name="login_error_generic">Something went wrong. Please try again.</string>
+
+    <!-- Loading State -->
+    <string name="login_loading">Signing in\u2026</string>
+
+    <!-- Accessibility -->
+    <string name="login_content_desc_back">Go back</string>
+
 </resources>
